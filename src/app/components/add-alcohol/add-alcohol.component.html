@@ -1,0 +1,17 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submited">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" required [(ngModel)]="alcohol.name">
+      </div>
+
+      <button class="btn btn-success" (click)="saveAlcohol()">Add</button>
+    </div>
+
+    <div *ngIf="submited">
+      <h4>You successfuly added an alcohol type</h4>
+      <button class="btn btn-success" (click)="newAlcohol()">Add</button>
+    </div>
+  </div>
+</div>
