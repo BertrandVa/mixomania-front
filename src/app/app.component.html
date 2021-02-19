@@ -1,17 +1,22 @@
-<div>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">mixomania</a>
-      <div class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a routerLink="alcohols" class="nav-link">Alcohols</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="add" class="nav-link">Add</a>
-        </li>
-      </div>
-    </nav>
+<mat-toolbar color="primary">
+  <button mat-button (click)="sidenav.open ()" ><mat-icon>menu</mat-icon></button>
+  <span>Mixomania</span>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button>
+</mat-toolbar>
 
-    <div class="container mt-3">
-      <router-outlet></router-outlet>
-    </div>
-</div>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item> Settings </button>
+  <button mat-menu-item> Help </button>
+</mat-menu>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="example-sidenav">
+    <mat-list class="list-nav">
+        <mat-list-item class="list-item" routerLink="/alcohols" (click)="sidenav.close();"> Alcools </mat-list-item>
+        <mat-list-item class="list-item" routerLink="/bottles" (click)="sidenav.close();"> Bouteilles </mat-list-item>
+        <mat-list-item class="list-item" routerLink="/recipes" (click)="sidenav.close();"> Recettes </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <router-outlet> </router-outlet>
+</mat-sidenav-container>

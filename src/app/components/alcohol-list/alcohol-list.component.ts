@@ -8,10 +8,11 @@ import { AlcoholService } from 'src/app/services/alcohol.service';
   styleUrls: ['./alcohol-list.component.css']
 })
 export class AlcoholListComponent implements OnInit {
-  alcohols?: Alcohol[];
   currentAlcohol?: Alcohol;
   currentIndex = -1;
   name = '';
+  mAlcohols:Array<any>;
+  mAlcohol:Array<any>;
 
   constructor(private alcoholService: AlcoholService) { }
 
@@ -22,7 +23,7 @@ export class AlcoholListComponent implements OnInit {
   retrieveAlcohols(): void{
     this.alcoholService.getAll().subscribe(
       data => {
-        this.alcohols = data;
+        this.mAlcohols = data;
         console.log(data);
       }, error => {
         console.log(error);
